@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
+import { Button } from 'react-bootstrap';
+import Follower from './Components/Follower';
+import MainProfile from './Components/MainProfile';
+import Following from './Components/Following';
+import { BrowserRouter, Route, Router, Routes,Navigate } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <>
+      <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<MainProfile/>}/>
+        <Route exact path="/follower" element={<Follower/>}/>
+        <Route exact path="/following" element={<Following/>}/>
+      </Routes>
+    </BrowserRouter>
+     </>
   );
 }
 
